@@ -1,0 +1,7 @@
+.active {
+  @apply visible translate-y-0 opacity-100 duration-700;
+}
+
+.inactive {
+  @apply invisible translate-y-[-20px] opacity-0 duration-700;
+}

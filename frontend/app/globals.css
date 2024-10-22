@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+html {
+  background-color: #353535;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "LilitaOne";
+  src: url("../public/fonts/LilitaOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lexend";
+  src: url("../public/fonts/Lexend-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeVietnamPro";
+  src: url("../public/fonts/BeVietnamPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #626262;
+  margin: 20px 0px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2b2b2b;
+  filter: blur(3px);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #2b2b2b; /* color of the thumb for horizontal scrollbar */
+}

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navBar {
+  @apply flex w-full items-center justify-between bg-background py-5 text-white md:relative md:h-screen md:w-24 md:flex-col md:py-10 
+    xl:w-64;
+}
+
+.navElement {
+  @apply h-auto w-auto duration-200  hover:cursor-pointer  hover:border-red-600 hover:text-red-600  md:w-full md:py-7 md:pl-4 md:hover:border-l-4 lg:rounded-r-none;
+}
+
+.navBarElementTitle {
+  @apply hidden font-vietnam text-sm tracking-wide xl:block xl:text-lg 2xl:text-lg;
+}
+
+.navBarContente {
+  @apply flex md:w-full md:flex-col md:px-4 lg:pl-4 lg:pr-0 xl:pl-6;
+}
+
+.navBarIcons {
+  @apply h-7 w-7 lg:h-7 lg:w-7 xl:h-8 xl:w-8 2xl:h-9 2xl:w-9;
+}

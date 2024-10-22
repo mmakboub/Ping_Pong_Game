@@ -1,0 +1,18 @@
+FROM node:20
+
+RUN apt-get update && apt-get install -y postgresql-client
+
+WORKDIR /app
+
+COPY package.json ./
+COPY package*.json ./
+
+RUN npm i
+
+COPY . ./
+
+RUN chmod +x script.sh
+
+ENTRYPOINT [ "./script.sh" ]
+
+CMD [ "npm", "run", "start:dev" ]

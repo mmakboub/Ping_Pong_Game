@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String              @id
+  email                 String              @unique @db.VarChar
+  username              String              @unique @db.VarChar
+  firstname             String?             
+  lastname              String?             
+  pictureUrl            String?             @db.VarChar
+  isOnline              Status              @default(OFFLINE)
+  twoFactor             Boolean             @default(false)
+  isfirsttime           Boolean             @default(true)
+  twoFactorId           String?
+  matchPlayed           Int?                @default(0)
+  matchWon              Int?                @default(0)
+  matchLost             Int?                @default(0)
+  level                 Int?                @default(0)
+  xp                    Int?                @default(0)
+  rank                  Int?                @default(0)
+  rooms                 Room[]              @relation("member")
+  admin                 Room[]              @relation("Admin")
+  friends               User[]              @relation("friends")
+  friendOf              User[]              @relation("friends")
+  block                 User[]              @relation("block")
+  blockBy               User[]              @relation("block")
+  HistoryLose           History[]           @relation("lose")
+  HistoryWin            History[]           @relation("win")
+  Room                  Room[]              @relation("owner")
+  FriendshipRequestsend FriendshipRequest[] @relation("SentFriendRequests")
+  FriendshipRequestrecv FriendshipRequest[] @relation("ReceivedFriendRequests")
+  achievements          Achievement[]
+  RoomBanedin           Room[]              @relation("baned")
+  roomId                String?
+  MutedUsers            MutedUsers[]
+}
+
+model FriendshipRequest {
+  id         String                  @id @default(uuid())
+  sender     User                    @relation("SentFriendRequests", fields: [senderId], references: [username])
+  senderId   String
+  receiver   User                    @relation("ReceivedFriendRequests", fields: [receiverId], references: [username])
+  receiverId String
+  status     FriendshipRequestStatus @default(PENDING)
+
+  @@unique([senderId, receiverId])
+}
+
+model Msg {
+  id               Int    @id @default(autoincrement())
+  content          String
+  time             String
+  senderId         String
+  timeOnMilisecond String
+  room             Room   @relation(fields: [roomId], references: [id])
+  roomId           String
+  senderPicture    String
+  type             String @default("TEXT")
+}
+
+model Room {
+  id         String       @id @default(uuid())
+  name       String
+  pictureUrl String?
+  admin      User[]       @relation("Admin")
+  member     User[]       @relation("member")
+  baned      User[]       @relation("baned")
+  msgs       Msg[]
+  type       RoomType     @default(INDIVIDUAL)
+  password   String?
+  owner      User?        @relation("owner", fields: [ownerId], references: [id])
+  ownerId    String?
+  MutedUsers MutedUsers[]
+}
+
+model History {
+  id           Int      @id @default(autoincrement())
+  playerWin    User     @relation("win", fields: [usernameWin], references: [username])
+  playerLose   User     @relation("lose", fields: [usernameLose], references: [username])
+  date         DateTime @default(now())
+  winScore     Int
+  loseScore    Int
+  usernameLose String
+  usernameWin  String
+}
+
+model Achievement {
+  id     Int             @id @default(autoincrement())
+  type   AchievementType
+  done   Boolean         @default(false)
+  doneBy User[]
+}
+
+model MutedUsers {
+  id       Int    @id @default(autoincrement())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  roomId   String
+  room     Room   @relation(fields: [roomId], references: [id])
+  period   String
+  createat String
+
+  @@unique([userId, roomId])
+}
+
+enum RoomType {
+  PUBLIC
+  PRIVATE
+  PROTECTED
+  INDIVIDUAL
+}
+
+enum Status {
+  ONLINE
+  OFFLINE
+  INGAME
+}
+
+enum FriendshipRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum AchievementType {
+  LONGEVITY
+  STRATEGIC
+  PRODIGY
+  GOLDEN
+  COMEBACK
+  RALLY
+  MASTER
+  CHALLENGER
+}

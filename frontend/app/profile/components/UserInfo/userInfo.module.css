@@ -1,0 +1,8 @@
+.background_image {
+    background-image: url('/images/bg-profile.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    /* Add other styles as needed */
+}

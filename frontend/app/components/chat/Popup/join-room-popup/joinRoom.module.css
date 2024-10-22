@@ -1,0 +1,4 @@
+.popup {
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
+}

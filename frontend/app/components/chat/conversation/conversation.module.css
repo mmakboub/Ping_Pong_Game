@@ -1,0 +1,66 @@
+.snow,
+.snow:after,
+.snow:before {
+  content: "";
+  position: absolute;
+  top: -650px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(1px 1px at 100px 50px, #d74646, transparent),
+    radial-gradient(2px 2px at 150px 180px, #52eaff, transparent),
+    radial-gradient(3px 3px at 300px 250px, #d74646, transparent),
+    radial-gradient(4px 1px at 450px 350px, #d74646, transparent),
+    radial-gradient(2px 2px at 550px 100px, #d74646, transparent),
+    radial-gradient(3px 3px at 600px 200px, #52eaff, transparent),
+    radial-gradient(1px 1px at 780px 300px, #52eaff, transparent),
+    radial-gradient(2px 2px at 800px 550px, #d74646, transparent),
+    radial-gradient(3px 3px at 950px 450px, #52eaff, transparent),
+    radial-gradient(2px 2px at 200px 150px, #52eaff, transparent),
+    radial-gradient(3px 3px at 340px 100px, #d74646, transparent),
+    radial-gradient(5px 4px at 400px 750px, #d74646, transparent),
+    radial-gradient(2px 2px at 500px 180px, #d74646, transparent),
+    radial-gradient(3px 3px at 690px 900px, #52eaff, transparent),
+    radial-gradient(1px 1px at 700px 800px, #52eaff, transparent),
+    radial-gradient(4px 2px at 460px 650px, #d74646, transparent),
+    radial-gradient(3px 3px at 900px 700px, #52eaff, transparent),
+    radial-gradient(2px 2px at 260px 450px, #52eaff, transparent),
+    radial-gradient(3px 3px at 340px 950px, #d74646, transparent),
+    radial-gradient(4px 1px at 480px 850px, #d74646, transparent),
+    radial-gradient(2px 2px at 500px 170px, #d74646, transparent),
+    radial-gradient(3px 4px at 610px 100px, #52eaff, transparent),
+    radial-gradient(5px 1px at 700px 800px, #52eaff, transparent),
+    radial-gradient(2px 2px at 870px 690px, #d74646, transparent),
+    radial-gradient(3px 3px at 920px 430px, #52eaff, transparent),
+    radial-gradient(1px 1px at 130px 500px, #d74646, transparent),
+    radial-gradient(2px 2px at 520px 200px, #d74646, transparent),
+    radial-gradient(3px 1px at 350px 500px, #52eaff, transparent);
+  background-size: 500px 500px;
+  animation: snowAnim 15s linear infinite;
+  z-index: -1;
+}
+
+.snow:after {
+  margin-left: -250px;
+  opacity: 0.5;
+  filter: blur(1px);
+  animation-direction: reverse;
+  animation-duration: 9s;
+}
+
+.snow:before {
+  margin-left: -350px;
+  opacity: 0.7;
+  filter: blur(2px);
+  animation-direction: reverse;
+  animation-duration: 6s;
+}
+
+@keyframes snowAnim {
+  form {
+    transorm: translateY(0);
+  }
+  to {
+    transform: translateY(1000px);
+  }
+}

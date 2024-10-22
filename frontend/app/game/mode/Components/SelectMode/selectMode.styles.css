@@ -1,0 +1,54 @@
+.swiperS {
+    padding-bottom: 1%  !important;
+}
+
+.swiper-slideS {
+    background-position: center !important;
+    background-size: cover !important;
+    width: auto !important;
+    padding-top: 1% !important;
+}
+
+.swiper-slideS img {
+    display: block !important;
+    width: 300px !important;
+	height: auto !important;
+}
+
+.swiper-button-prev {
+    font-size: 5px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(63,63,63,1) 99.9%, rgba(137,137,137,1) 100%);
+    padding: 20px;
+    height: 70px;
+    color: #898989;
+}
+
+.swiper-button-next {
+    font-size: 5px;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(63,63,63,1) 99.9%, rgba(137,137,137,1) 100%);
+    padding: 20px;
+    height: 70px;
+    color: #898989;
+}
+
+.swiper-button-prev:hover {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(63,63,63,1) 99.9%, rgba(137,137,137,1) 100%);
+}
+
+.swiper-button-next:hover {
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(63,63,63,1) 99.9%, rgba(137,137,137,1) 100%);
+}
+
+.swiper-button-next::after {
+    font-size: 25px;
+    content: url('/images/background/chooseMapBg/vectorNext.svg');
+}
+
+.swiper-button-prev::after  {
+    font-size: 25px;
+    content: url('/images/background/chooseMapBg/vectorPrev.svg');
+}
